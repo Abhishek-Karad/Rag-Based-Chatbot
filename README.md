@@ -109,14 +109,14 @@ Copy code
   ├─ src/App.jsx          # Main React component
   └─ ...                  # Vite-based React setup
 ```
-Customizing Image Library
+## Customizing Image Library
 Images are stored under: /backend/public/images
 
 Metadata is stored in: /backend/data/images.json
 
 Edit images.json to add new images or update descriptions and topics.
 
- How RAG Works
+## How RAG Works
 PDF text is chunked into ~800 character blocks.
 
 Each chunk is embedded via a local MiniLM model.
