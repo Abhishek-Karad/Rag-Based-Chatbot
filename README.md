@@ -20,6 +20,13 @@ This project allows users to upload chapter PDFs, ask questions about the conten
 - **Persistent Topic Store**: Topics are cached and stored on disk for reuse.
 
 ---
+## Site Preview
+![Alt Text](./demo/png)
+
+
+
+
+---
 
 ##  Why a Local Embedder?
 
