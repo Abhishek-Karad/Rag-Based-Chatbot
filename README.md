@@ -21,7 +21,7 @@ This project allows users to upload chapter PDFs, ask questions about the conten
 
 ---
 ## Site Preview
-![Alt Text](./demo/png)
+![Alt Text](./demo.png)
 
 
 
