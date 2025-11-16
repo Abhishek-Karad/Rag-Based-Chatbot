@@ -1,0 +1,95 @@
+[
+  {
+    "id": "img_001",
+    "filename": "compression_refraction.png",
+    "title": "Compression and Rarefaction in Sound Waves",
+    "keywords": [
+      "compression",
+      "rarefaction",
+      "sound wave",
+      "tuning fork",
+      "longitudinal wave",
+      "mechanical wave",
+      "air pressure"
+    ],
+    "description": "A detailed diagram showing how a vibrating tuning fork generates alternating high-pressure (compression) and low-pressure (rarefaction) regions in the surrounding air, thereby producing longitudinal sound waves.",
+    "topicId": "sound"
+  },
+  {
+    "id": "img_002",
+    "filename": "musical_vibration_chart.png",
+    "title": "Vibrations in Different Musical Instruments",
+    "keywords": [
+      "musical instruments",
+      "sitar",
+      "flute",
+      "drum",
+      "vibration",
+      "sound production",
+      "string instruments",
+      "air column",
+      "membrane"
+    ],
+    "description": "A comparative chart illustrating how different types of musical instruments—such as stringed instruments (sitar), wind instruments (flute), and percussion instruments (drum)—produce sound through the vibration of strings, air columns, or membranes.",
+    "topicId": "sound"
+  },
+  {
+    "id": "img_003",
+    "filename": "reflection_of_sound.png",
+    "title": "Experimental Setup for Reflection of Sound",
+    "keywords": [
+      "reflection",
+      "echo",
+      "sound waves",
+      "experiment",
+      "cardboard tube",
+      "acoustics"
+    ],
+    "description": "An educational diagram showing an experimental setup involving two cardboard tubes and a sound source to demonstrate the reflection of sound waves. Used to visualize how echoes are produced and perceived.",
+    "topicId": "sound"
+  },
+  {
+    "id": "img_004",
+    "filename": "school_bell_vibration.png",
+    "title": "Vibrations from a Struck Bell",
+    "keywords": [
+      "bell",
+      "vibration",
+      "sound waves",
+      "acoustic resonance",
+      "metal ringing"
+    ],
+    "description": "Illustration of a school bell being struck, showing vibrations spreading through the metal surface and into the air, generating audible sound waves that travel outward in all directions.",
+    "topicId": "sound"
+  },
+  {
+    "id": "img_005",
+    "filename": "rubber_band_vibration.png",
+    "title": "Sound Generation from a Vibrating Rubber Band",
+    "keywords": [
+      "rubber band",
+      "vibration",
+      "sound production",
+      "plucking",
+      "frequency",
+      "amplitude"
+    ],
+    "description": "A diagram demonstrating how a stretched rubber band produces sound when plucked. It shows the oscillation of the band, along with the resulting sound waves, indicating how tension affects pitch.",
+    "topicId": "sound"
+  },
+  {
+    "id": "img_006",
+    "filename": "vocal_cords_diagram.png",
+    "title": "Vibration of Vocal Cords in Speech",
+    "keywords": [
+      "vocal cords",
+      "larynx",
+      "voice production",
+      "air pressure",
+      "speech",
+      "sound"
+    ],
+    "description": "A cross-sectional diagram of the human respiratory and vocal system highlighting the vocal cords inside the larynx. It shows how air from the lungs passes through the vocal fold gap, causing them to vibrate and produce sound.",
+    "topicId": "sound"
+  }
+]
