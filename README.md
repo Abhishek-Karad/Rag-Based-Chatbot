@@ -1,4 +1,4 @@
-# 📘 RAG-Based AI Tutor with Visual Context
+# 🚀 RAG-Based AI Tutor with Visual Context
 
 A Retrieval-Augmented Generation (RAG) application powered by **Google Gemini AI**, designed to help students understand PDF-based content through contextual question answering and relevant visual aids.
 
@@ -6,19 +6,35 @@ This project allows users to upload chapter PDFs, ask questions about the conten
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **PDF Upload & Parsing**: Upload a PDF and extract its text content.
 - **Chunking & Embedding**: Text is chunked and embedded using a local MiniLM model.
-- **Retrieval-Augmented Generation**: Relevant text chunks are retrieved to ground responses.
-- **Fallback Logic**: If RAG fails but question matches chapter semantics, AI fallback is used.
+- **Retrieval-Augmented Generation**: Relevant text chunks are retrieved to ground responses when answering.
+- **Fallback Logic with Intelligence**:
+  - If the answer cannot be derived from the retrieved chunks and the question still matches the topic’s semantics based on cosine similarity, a fallback prompt is sent to **Gemini**.
+  - This fallback answer is generated *without RAG context* but only allowed if the question is sufficiently related to the topic.
+  - The response is clearly labeled as non-grounded to maintain transparency.
 - **Image Matching**: Relevant images are surfaced based on text-image semantic similarity.
 - **Frontend Chat System**: React app provides an interactive tutor interface.
 - **Persistent Topic Store**: Topics are cached and stored on disk for reuse.
 
 ---
 
-## 🛠️ Tech Stack
+##  Why a Local Embedder?
+
+We use a **locally hosted MiniLM model** from `@xenova/transformers` for generating embeddings:
+
+- **Fast and Lightweight**: MiniLM is optimized for local inference without needing GPU, making it ideal for scalable use cases.
+- **No Dependency on External APIs**: Avoids latency and rate-limits from cloud embedding APIs.
+- **Edge or On-Prem Ready**: Can be deployed offline or in environments where cloud access is restricted.
+- **Custom Control**: Easy to swap or fine-tune embeddings based on task needs.
+
+This approach gives us complete control while keeping the pipeline efficient and cost-effective.
+
+---
+
+##  Tech Stack
 
 - **Backend**: Node.js, Express.js, Multer, pdf-parse, @google/generative-ai
 - **Text Embeddings**: @xenova/transformers (MiniLM)
@@ -28,7 +44,7 @@ This project allows users to upload chapter PDFs, ask questions about the conten
 
 ---
 
-## 📦 Getting Started
+##  Getting Started
 
 ### 1. Clone the Repository
 
@@ -47,7 +63,7 @@ Copy code
 cd frontend
 npm install
 3. Environment Variables
-Create a .env file inside the backend folder with:
+Create a .env file inside the backend folder:
 
 ini
 Copy code
@@ -66,9 +82,9 @@ Copy code
 cd frontend
 npm run dev
 The app will be available at:
-👉 http://localhost:5173 (default Vite port)
+ http://localhost:5173
 
-✨ Usage
+ Usage
 Upload a PDF chapter using the left panel.
 
 Once uploaded, view the content in the embedded PDF viewer.
@@ -77,13 +93,13 @@ Ask questions in the chat box based on the chapter content.
 
 Get answers grounded in the chapter, accompanied by images when relevant.
 
-📁 Folder Structure
+ Folder Structure
 bash
 Copy code
 /backend
   ├─ index.js             # Express server
   ├─ rag.js               # RAG logic
-  ├─ embeddings.js        # Embedding logic
+  ├─ embeddings.js        # Local MiniLM embedding logic
   ├─ imageStore.js        # Image matching logic
   ├─ data/
       ├─ topics/          # Persisted topic JSONs
@@ -92,21 +108,31 @@ Copy code
 /frontend
   ├─ src/App.jsx          # Main React component
   └─ ...                  # Vite-based React setup
-🔧 Customizing Image Library
-Images are stored under /backend/public/images and their metadata is defined in /backend/data/images.json. You can update this JSON to map images to specific topics and provide better descriptions or keywords.
+```
+Customizing Image Library
+Images are stored under: /backend/public/images
 
-🧠 How RAG Works
+Metadata is stored in: /backend/data/images.json
+
+Edit images.json to add new images or update descriptions and topics.
+
+ How RAG Works
 PDF text is chunked into ~800 character blocks.
 
-Chunks are embedded using MiniLM (locally).
+Each chunk is embedded via a local MiniLM model.
 
-Upon receiving a question:
+For every question:
 
-The query is embedded.
+Question is embedded.
 
-Top-k chunks are retrieved based on cosine similarity.
+Top-k semantically relevant chunks are identified using cosine similarity.
 
-Gemini answers using those chunks as context.
+These chunks are used as context for Gemini to answer.
 
-If confidence is low but the question is semantically close, fallback LLM answer is used.
+Fallback Mode:
+
+If the answer is insufficient and question meaning is strongly connected to topic (>0.3 similarity), Gemini generates a general answer.
+
+The answer is flagged with:
+*Note: This answer was generated outside the chapter context and may be open-ended.*
 
